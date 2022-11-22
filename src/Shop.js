@@ -9,15 +9,15 @@ function Shop() {
   return ( 
 <div className="App">
       <Particless/> 
-<div className="block">
-    <AllCategories/>
-     <Desserts /> 
-</div>      
+    
 <div className="block">
   <Cart/>
 </div>
-    
+ <div className="block">
+    <AllCategories/>
+     <Desserts />   
 </div>
+</div>  
   );
 }
 
