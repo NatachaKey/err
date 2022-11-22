@@ -7,18 +7,20 @@ export const cartSlice = createSlice({
     },
     reducers: {
         addItemToCart: (state, action) =>{
-            const timeId = new Date().getTime();
+            // const timeId = new Date().getTime();
             state.cartItems.push({
-                id:timeId,
+                id:action.payload.dessert.id,
                 dessertId: action.payload.dessert.id,
                 quantity: action.payload.quantity,
-                totalPrice: action.payload.quantity* action.payload.dessert.price
+                price: action.payload.dessert.price,
+                totalPrice: action.payload.quantity * action.payload.dessert.price,
+                
             })
+            
         },
         
         removeItemFromCart: (state, action) =>{
-            state.cartItems = state.cartItems.filter(
-                cartItem => cartItem.id !== action.payload.cartItemId
+            state.cartItems = state.cartItems.filter( cartItem => cartItem.id !== action.payload.cartItemId
             )
         },
 
@@ -26,6 +28,7 @@ export const cartSlice = createSlice({
             const newCart = [];
             
             state.cartItems.forEach(item => {
+
                 if (item.dessertId === action.payload.dessert.id) {
                     let newQuantity = item.quantity + action.payload.quantity;
                     let totalSum = item.price * newQuantity;
@@ -34,6 +37,8 @@ export const cartSlice = createSlice({
                 } else {
                     newCart.push(item);
                 }
+
+                
             })
             state.cartItems = newCart;
         },
