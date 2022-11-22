@@ -12,11 +12,10 @@ const CartItem = ({ cartItem })=> {
     <div>
         {/* <img src={`./${cartItem.img}.jpg`} alt="cart item" width="100px"/> */}
        <p>{cartItem.name}</p>
-       <p>{cartItem.quantity}</p>
-       <p>${cartItem.totalPrice}</p>
-        <p>{cartItem.quantity}portion(s)  <span onClick={()=>dispatch(removeItemFromCart({cartItemId: cartItem.id}))}>
+       <p>Portion(s): {cartItem.quantity}</p>
+       <p>${cartItem.totalPrice}<span onClick={()=>dispatch(removeItemFromCart({cartItemId: cartItem.id}))}>
        <img className="icon" src="https://img.icons8.com/material-outlined/48/000000/trash--v1.png" alt='delete'/>  
-        </span>   </p> 
+        </span></p> 
         
     </div>
     
