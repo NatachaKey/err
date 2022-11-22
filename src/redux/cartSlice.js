@@ -11,6 +11,7 @@ export const cartSlice = createSlice({
             state.cartItems.push({
                 id:action.payload.dessert.id,
                 dessertId: action.payload.dessert.id,
+                name:action.payload.dessert.name,
                 quantity: action.payload.quantity,
                 price: action.payload.dessert.price,
                 totalPrice: action.payload.quantity * action.payload.dessert.price,
